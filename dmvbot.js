@@ -36,8 +36,15 @@ const puppeteer = require("puppeteer");
 
     try {
         await page.waitForXPath('//*[@id="noReservations"]/div/p[1]');
+      
+        /* if you want to print the text
+        
         let [getFirstXPath] = await page.$x('//*[@id="noReservations"]/div/p[1]');
         let dmvtext = await page.evaluate(getFirstXPath => getFirstXPath.textContent, getFirstXPath);
+        
+        */
+      
+        //throw new Exception(); //test catch
     } catch {
         const page2 = await browser.newPage();
         await page2.goto("https://mail.google.com/mail/u/0/#drafts?compose=jrjtXPVtPCqRVBRBcmzTTsFtCKvdJBBxpsgjRSXxQKVsHtNvqtvJlZfkqGKvBPfmQKznhWQh", {
