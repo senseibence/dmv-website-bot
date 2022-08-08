@@ -57,7 +57,16 @@ const puppeteer = require("puppeteer");
         await browser.disconnect();
     }
     
-    await page.waitForTimeout(10000); //avoid site rate limit
+    // avoid site detection mechanism
+    const randInt = Math.floor(Math.random()*4);
+    let currentNum;
+
+    if (randInt == 0) currentNum = 10066;
+    if (randInt == 1) currentNum = 10850;
+    if (randInt == 2) currentNum = 12223;
+    if (randInt == 3) currentNum = 14938;
+
+    await page.waitForTimeout(currentNum); // avoid site rate limit
     startOver();
   }
 
